@@ -18,7 +18,6 @@ export default class Carousel {
         this.slidesWrapper.style.position = 'absolute';
         this.slidesWrapper.style.zIndex = '-1';
 
-        // Ensure wrapper width matches its container
         this.slidesWrapper.style.width = '100%';
         this.slidesWrapper.style.height = '100%';
 
