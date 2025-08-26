@@ -58,7 +58,7 @@ export default class Carousel {
     set activeSlide(value) {
         if (typeof value !== 'number') return;
 
-        // Ensure value is within range [-slides.length, slides.length]
+        // Ensure value is in the range [-slides.length, slides.length]
         // by using the modulus operator
         value = value % this.slides.length;
 
