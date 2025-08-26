@@ -35,11 +35,30 @@ body {
     place-self: center;
 }
 
-.carousel__content {
-    color: white;
-    font-weight: bold;
-    place-self: center;
-    font-size: 2rem;
-    background: hsla(300, 100%, 50%, 0.25);
-    padding: 20px;
+.carousel__dots {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    justify-content: center;
+    align-items: end;
+}
+
+.carousel__dot:hover {
+    cursor: pointer;
+    border: 2px solid hsl(300, 100%, 70%);
+}
+
+.carousel__dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 15px;
+    border: 2px solid hsl(300, 100%, 50%);
+}
+
+.carousel__dot--selected:hover {
+    background: hsl(300, 100%, 70%);
+}
+
+.carousel__dot--selected {
+    background: hsl(300, 100%, 50%);
 }

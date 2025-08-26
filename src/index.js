@@ -9,7 +9,21 @@ const slidesArr = Array.from(
 const nextBtn = document.querySelector('.carousel__next');
 const prevBtn = document.querySelector('.carousel__prev');
 
-const carousel = new Carousel(container, slidesArr);
+const dotsWrapper = document.querySelector('.carousel__dots');
+const dot = document.createElement('div');
+dot.classList.add('carousel__dot');
+
+const selectedDot = document.createElement('div');
+selectedDot.classList.add('carousel__dot');
+selectedDot.classList.add('carousel__dot--selected');
+
+const carousel = new Carousel(
+    container,
+    slidesArr,
+    dotsWrapper,
+    dot,
+    selectedDot
+);
 
 nextBtn.addEventListener('click', () => carousel.next());
 prevBtn.addEventListener('click', () => carousel.prev());
