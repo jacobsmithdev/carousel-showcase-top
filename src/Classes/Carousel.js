@@ -1,10 +1,20 @@
 export default class Carousel {
     #activeSlide = 0;
 
-    constructor(container, slides) {
+    constructor(
+        container,
+        slides,
+        dotsWrapper = null,
+        dotTemplate = null,
+        activeDotTemplate = null
+    ) {
         this.element = container;
         this.element.style.overflow = 'clip';
         this.element.style.position = 'relative';
+
+        if (dotsWrapper) this.dotsWrapper = dotsWrapper;
+        if (dotTemplate) this.dotTemplate = dotTemplate;
+        if (activeDotTemplate) this.activeDotTemplate = activeDotTemplate;
 
         this.slidesWrapper = document.createElement('div');
 
@@ -37,6 +47,8 @@ export default class Carousel {
             slide.style.width = '100%';
             this.slidesWrapper.append(slide);
         });
+
+        this.#renderDots();
     }
 
     get activeSlide() {
@@ -57,6 +69,32 @@ export default class Carousel {
 
         this.#activeSlide = value;
         this.slidesWrapper.style.transform = `translateX(calc(-100% * ${this.#activeSlide}))`;
+        this.#renderDots();
+    }
+
+    hasDots() {
+        return this.dotsWrapper && this.dotTemplate && this.activeDotTemplate;
+    }
+
+    #renderDots() {
+        if (!this.hasDots()) return;
+
+        this.dotsWrapper.textContent = '';
+
+        for (let index = 0; index < this.slides.length; index++) {
+            if (index === this.activeSlide) {
+                const activeDot = this.activeDotTemplate.cloneNode();
+                activeDot.addEventListener(
+                    'click',
+                    () => (this.activeSlide = index)
+                );
+                this.dotsWrapper.append(activeDot);
+            } else {
+                const dot = this.dotTemplate.cloneNode();
+                dot.addEventListener('click', () => (this.activeSlide = index));
+                this.dotsWrapper.append(dot);
+            }
+        }
     }
 
     next() {
