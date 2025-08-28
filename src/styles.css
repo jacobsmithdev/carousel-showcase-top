@@ -15,3 +15,10 @@
         'Helvetica Neue',
         sans-serif;
 }
+
+.layout-wrapper {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: hsl(0, 0%, 100%);
+}
