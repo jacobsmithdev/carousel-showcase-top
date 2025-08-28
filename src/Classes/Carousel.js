@@ -11,6 +11,7 @@ export default class Carousel {
         this.element = container;
         this.element.style.overflow = 'clip';
         this.element.style.position = 'relative';
+        this.element.style.zIndex = '0';
 
         if (dotsWrapper) this.dotsWrapper = dotsWrapper;
         if (dotTemplate) this.dotTemplate = dotTemplate;
