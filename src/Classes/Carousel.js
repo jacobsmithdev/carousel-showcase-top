@@ -84,14 +84,14 @@ export default class Carousel {
 
         for (let index = 0; index < this.slides.length; index++) {
             if (index === this.activeSlide) {
-                const activeDot = this.activeDotTemplate.cloneNode();
+                const activeDot = this.activeDotTemplate.cloneNode(true);
                 activeDot.addEventListener(
                     'click',
                     () => (this.activeSlide = index)
                 );
                 this.dotsWrapper.append(activeDot);
             } else {
-                const dot = this.dotTemplate.cloneNode();
+                const dot = this.dotTemplate.cloneNode(true);
                 dot.addEventListener('click', () => (this.activeSlide = index));
                 this.dotsWrapper.append(dot);
             }
