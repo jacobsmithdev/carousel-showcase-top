@@ -31,3 +31,5 @@ carousel.slideTransition = '400ms ease-in-out';
 
 nextBtn.addEventListener('click', () => carousel.next());
 prevBtn.addEventListener('click', () => carousel.prev());
+
+const interval = setInterval(() => carousel.next(), 5000);
