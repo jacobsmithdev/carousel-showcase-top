@@ -95,7 +95,7 @@
     width: 0.75rem;
     height: 0.75rem;
     border-radius: 8px;
-    border: 2px solid lightgrey;
+    border: 2px solid hsl(0, 0%, 83%);
 }
 
 .dot:hover {
@@ -103,7 +103,7 @@
 }
 
 .dot--active .dot__circle {
-    background: lightgrey;
+    background: hsl(0, 0%, 83%);
 }
 
 .credit {
