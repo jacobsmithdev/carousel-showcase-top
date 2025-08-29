@@ -27,5 +27,7 @@ const carousel = new Carousel(
     activeDot
 );
 
+carousel.slideTransition = '400ms ease-in-out';
+
 nextBtn.addEventListener('click', () => carousel.next());
 prevBtn.addEventListener('click', () => carousel.prev());
