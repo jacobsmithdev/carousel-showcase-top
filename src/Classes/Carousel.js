@@ -52,6 +52,15 @@ export default class Carousel {
         this.#renderDots();
     }
 
+    get slideTransition() {
+        return this.slidesWrapper.style.transition;
+    }
+
+    set slideTransition(value) {
+        if (!value) this.slidesWrapper.style.transition = '';
+        this.slidesWrapper.style.transition = `transform ${value}`;
+    }
+
     get activeSlide() {
         return this.#activeSlide;
     }
